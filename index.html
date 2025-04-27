@@ -4,126 +4,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Степан Иванов | Контент, технологии и автоматизация</title>
-  <!-- Google Fonts -->
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
   <style>
     :root {
-      --font-main: 'Inter', sans-serif;
-      --font-heading: 'Poppins', sans-serif;
+      --primary-color: #6a11cb;
+      --secondary-color: #2575fc;
+      --background-light: rgba(255,255,255,0.85);
       --text-main: #111827;
       --text-secondary: #4b5563;
-      --gradient-content: linear-gradient(90deg, #e9c6f4 0%, #a9d2fa 100%);
-      --gradient-process: linear-gradient(90deg, #c1f0bd 0%, #ffd1dc 100%);
-      --gradient-benefits: linear-gradient(90deg, #fef9c3 0%, #d6e4ff 100%);
+      --font-main: 'Inter', sans-serif;
+      --font-heading: 'Poppins', sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
+
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: var(--font-main);
       color: var(--text-main);
+      line-height: 1.7;
       background: url('hero-visual.png') no-repeat center center fixed;
       background-size: cover;
-      line-height: 1.6;
     }
-    .container { max-width:1000px; margin:0 auto; padding:20px; position:relative; z-index:1; }
-    .hero-section {
-      text-align:center;
-      padding:100px 20px;
-      /* Background image for hero */
-      background: url('фон3.jpg') no-repeat center center;
-      background-size: cover;
-      border-radius:24px;
-      color:#111;
-      margin-bottom:20px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.1);
-      font-family: var(--font-heading);
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
       position: relative;
+      z-index: 1;
     }
-    .hero-section h1, .hero-section p {
-      /* Text stroke and shadow for readability */
-      -webkit-text-stroke: 1px rgba(255,255,255,0.8);
-      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+
+    section {
+      margin-bottom: 60px;
+      background: var(--background-light);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 40px 30px;
     }
-    .hero-section h1 { font-size:3rem; margin-bottom:10px; }
-    .hero-section p { font-size:1.25rem; }
-    .section-container {
-      position:relative;
-      margin-bottom:20px;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
-      min-height:200px;
+
+    .hero-section {
+      text-align: center;
+      padding: 140px 20px 100px;
+      background: none;
+      box-shadow: none;
+      margin-bottom: 0;
     }
-    .section-button {
-      width:100%;
-      background:none;
-      border:none;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:16px;
+
+    .hero-section h1 {
       font-family: var(--font-heading);
-      font-size:1.1rem;
-      font-weight:600;
-      color: #111;
-      transition: background 0.3s;
+      font-size: 3rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.4);
     }
-    .section-button .icon { font-size:1.2rem; }
-    .section-button .arrow { margin-left:auto; font-size:1rem; transition:transform 0.3s; }
-    /* Backgrounds for each section */
-    .visual-background { background-image:url('fon2.png'); background-size:cover; background-position:center; }
-    .tech-background   { background-image:url('фон3.png'); background-size:cover; background-position:center; }
-    .process-background { background: var(--gradient-process); }
-    .benefits-background{ background: var(--gradient-benefits);}    
-    .section-content {
-      background: rgba(255,255,255,0.97);
-      max-height:0;
-      overflow:hidden;
-      transition: max-height 0.45s ease, padding 0.45s ease;
-      padding:0 20px;
+
+    .hero-section p {
+      font-size: 1.3rem;
+      color: var(--text-main);
+      max-width: 650px;
+      margin: 0 auto;
+      text-shadow: 0 2px 5px rgba(255, 255, 255, 0.3);
     }
-    .section-content.show {
-      padding:20px;
-      max-height:800px;
-    }
-    /* Contact block on plain background */
-    .contact { text-align:center; margin:20px 0; }
-    .contact h2 { font-family: var(--font-heading); font-size:2rem; margin-bottom:16px; }
-    .contact p  { font-size:1rem; margin-bottom:20px; }
-    .contact .button {
-      background: var(--gradient-content);
-      padding:12px 32px;
-      border-radius:9999px;
-      color:#111;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      text-decoration:none;
+
+    h2 {
       font-family: var(--font-heading);
-      font-weight:600;
+      font-size: 2rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      text-align: center;
+      cursor: pointer;
     }
-    @media (max-width:768px) {
-      .hero-section h1 { font-size:2.4rem; }
-      .section-button { font-size:1rem; padding:12px; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 1.1rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .highlight {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .contact {
+      text-align: center;
+      background: none;
+      box-shadow: none;
+    }
+
+    .visual-background, .tech-background, .process-background, .benefits-background {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 20px;
+      padding: 60px 20px;
+      margin-bottom: 60px;
+      text-align: center;
+      position: relative;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .visual-background {
+      background-image: url('fon2.png');
+    }
+
+    .tech-background {
+      background-image: url('фон3.png');
+    }
+
+    .visual-title, .tech-title, .process-title, .benefits-title {
+      background: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      cursor: pointer;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .visual-inner, .tech-inner, .process-inner, .benefits-inner {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 0 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+
+    .visual-inner.show, .tech-inner.show, .process-inner.show, .benefits-inner.show {
+      max-height: 1000px;
+      padding: 40px;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 1.8rem; }
+      li { font-size: 1rem; }
     }
   </style>
+
   <script>
-    function toggleSection(id) {
-      const content = document.getElementById(id + '-content');
-      const arrow = document.getElementById(id + '-arrow');
-      const show = !content.classList.contains('show');
-      ['content','tech','process','benefits'].forEach(key => {
-        if (key !== id) {
-          document.getElementById(key + '-content').classList.remove('show');
-          document.getElementById(key + '-arrow').className = 'fas fa-chevron-down arrow';
-        }
-      });
-      content.classList.toggle('show');
-      arrow.className = show ? 'fas fa-chevron-up arrow' : 'fas fa-chevron-down arrow';
+    function toggleVisualInner() {
+      document.querySelector('.visual-inner').classList.toggle('show');
+    }
+
+    function toggleTechInner() {
+      document.querySelector('.tech-inner').classList.toggle('show');
+    }
+
+    function toggleProcessInner() {
+      document.querySelector('.process-inner').classList.toggle('show');
+    }
+
+    function toggleBenefitsInner() {
+      document.querySelector('.benefits-inner').classList.toggle('show');
     }
   </script>
 </head>
@@ -135,49 +216,40 @@
       <p>Креатив, тексты, нейросети, технологии: создаю контент и решения, которые работают на ваши цели.</p>
     </div>
 
-    <!-- Контент и Визуал -->
-    <div class="section-container visual-background">
-      <button class="section-button" onclick="toggleSection('content')">
-        <i class="fas fa-pen-fancy icon"></i><span>Контент и Визуал</span><i class="fas fa-chevron-down arrow" id="content-arrow"></i>
-      </button>
-      <div id="content-content" class="section-content">
+    <div class="visual-background">
+      <div class="visual-title" onclick="toggleVisualInner()">Контент и Визуал</div>
+      <div class="visual-inner">
         <ul>
-          <li><span>Пост для соцсетей</span><span class="price">1700₽</span></li>
-          <li><span>Статья для Дзена</span><span class="price">3500₽</span></li>
-          <li><span>Разработка рубрики</span><span class="price">10 000₽</span></li>
-          <li><span>Ведение канала</span><span class="price">40 000₽/мес</span></li>
-          <li><span>Менеджмент канала</span><span class="price">10 000₽/мес</span></li>
-          <li><span>Полное продюсирование</span><span class="price">от 80 000₽</span></li>
-          <li><span>Адаптация изображений</span><span class="price">от 3000₽</span></li>
-          <li><span>Серия изображений (5 штук)</span><span class="price">от 12 000₽</span></li>
+          <li><span>Пост для соцсетей</span><span class="highlight">1700₽</span></li>
+          <li><span>Развернутый пост или статья для Дзена</span><span class="highlight">3500₽</span></li>
+          <li><span>Разработка рубрики</span><span class="highlight">10 000₽</span></li>
+          <li><span>Ведение канала</span><span class="highlight">40 000₽/мес</span></li>
+          <li><span>Менеджмент канала</span><span class="highlight">10 000₽/мес</span></li>
+          <li><span>Полное продюсирование канала</span><span class="highlight">от 80 000₽</span></li>
+          <li><span>Адаптация изображений с интеграцией товара</span><span class="highlight">от 3000₽</span></li>
+          <li><span>Серия изображений (5 штук)</span><span class="highlight">от 12 000₽</span></li>
         </ul>
       </div>
     </div>
 
-    <!-- Технологии и Автоматизация -->
-    <div class="section-container tech-background">
-      <button class="section-button" onclick="toggleSection('tech')">
-        <i class="fas fa-robot icon"></i><span>Технологии и Автоматизация</span><i class="fas fa-chevron-down arrow" id="tech-arrow"></i>
-      </button>
-      <div id="tech-content" class="section-content">
+    <div class="tech-background">
+      <div class="tech-title" onclick="toggleTechInner()">Технологии и автоматизация</div>
+      <div class="tech-inner">
         <ul>
-          <li><span>Мини-сайт на GitHub Pages</span><span class="price">от 5000₽</span></li>
-          <li><span>Сайт с анимациями</span><span class="price">от 8000₽</span></li>
-          <li><span>Telegram-бот на OpenAI API</span><span class="price">от 12 000₽</span></li>
-          <li><span>Продвинутый бот</span><span class="price">от 20 000₽</span></li>
-          <li><span>Нейроагент</span><span class="price">от 18 000₽</span></li>
-          <li><span>Автоматизация задач</span><span class="price">от 7000₽</span></li>
-          <li><span>Комплексная интеграция</span><span class="price">от 35 000₽</span></li>
+          <li><span>Мини-сайт на GitHub Pages</span><span class="highlight">от 5000₽</span></li>
+          <li><span>Расширенный сайт с кастомизацией</span><span class="highlight">от 8000₽</span></li>
+          <li><span>Telegram-бот на OpenAI API</span><span class="highlight">от 12 000₽</span></li>
+          <li><span>Продвинутый бот</span><span class="highlight">от 20 000₽</span></li>
+          <li><span>Нейроагент</span><span class="highlight">от 18 000₽</span></li>
+          <li><span>Автоматизация задач через API</span><span class="highlight">от 7000₽</span></li>
+          <li><span>Комплексная интеграция</span><span class="highlight">от 35 000₽</span></li>
         </ul>
       </div>
     </div>
 
-    <!-- Как я работаю -->
-    <div class="section-container process-background">
-      <button class="section-button" onclick="toggleSection('process')">
-        <i class="fas fa-tasks icon"></i><span>Как я работаю</span><i class="fas fa-chevron-down arrow" id="process-arrow"></i>
-      </button>
-      <div id="process-content" class="section-content">
+    <div class="process-background">
+      <div class="process-title" onclick="toggleProcessInner()">Как я работаю</div>
+      <div class="process-inner">
         <ul>
           <li>Погружаюсь в проект и цели</li>
           <li>Разрабатываю стратегию и план</li>
@@ -187,7 +259,24 @@
       </div>
     </div>
 
-    <!-- Почему удобно -->
-    <div class="section-container benefits-background">
-      <button class="section-button" onclick="toggleSection('benefits')">
-        <i class="fas fa-check-circle icon"></i><span>Почему удобно</span><i class="fas fa-chevron-down arrow" id="benefits-arrow"></i>
+    <div class="benefits-background">
+      <div class="benefits-title" onclick="toggleBenefitsInner()">Почему удобно</div>
+      <div class="benefits-inner">
+        <ul>
+          <li>Скорость и дедлайны</li>
+          <li>Глубокий анализ задач</li>
+          <li>Прозрачная коммуникация</li>
+          <li>Долгосрочное партнерство</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="contact">
+      <h2>Готовы начать?</h2>
+      <p>Напишите мне в Telegram, чтобы обсудить ваш проект.</p>
+      <a href="https://t.me/Stivanovv" class="button" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+    </section>
+
+  </div>
+</body>
+</html>
