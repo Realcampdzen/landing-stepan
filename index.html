@@ -31,20 +31,23 @@
     .hero-section {
       text-align:center;
       padding:100px 20px;
-      /* Background image for hero */
       background: url('фон3.jpg') no-repeat center center;
       background-size: cover;
       border-radius:24px;
-      color:#111;
+      color:#000;
       margin-bottom:20px;
       box-shadow:0 8px 24px rgba(0,0,0,0.1);
       font-family: var(--font-heading);
       position: relative;
     }
     .hero-section h1, .hero-section p {
-      /* Text stroke and shadow for readability */
-      -webkit-text-stroke: 1px rgba(255,255,255,0.8);
-      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+      display: inline-block;
+      background: rgba(255,255,255,0.5);
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: #000;
+      text-shadow: none;
+      -webkit-text-stroke: 0;
     }
     .hero-section h1 { font-size:3rem; margin-bottom:10px; }
     .hero-section p { font-size:1.25rem; }
@@ -74,7 +77,7 @@
     }
     .section-button .icon { font-size:1.2rem; }
     .section-button .arrow { margin-left:auto; font-size:1rem; transition:transform 0.3s; }
-    /* Backgrounds for each section */
+    /* Backgrounds */
     .visual-background { background-image:url('fon2.png'); background-size:cover; background-position:center; }
     .tech-background   { background-image:url('фон3.png'); background-size:cover; background-position:center; }
     .process-background { background: var(--gradient-process); }
@@ -91,7 +94,7 @@
       max-height:800px;
     }
     /* Contact block on plain background */
-    .contact { text-align:center; margin:20px 0; }
+    .contact { text-align:center; margin:40px 0; }
     .contact h2 { font-family: var(--font-heading); font-size:2rem; margin-bottom:16px; }
     .contact p  { font-size:1rem; margin-bottom:20px; }
     .contact .button {
@@ -167,27 +170,4 @@
           <li><span>Продвинутый бот</span><span class="price">от 20 000₽</span></li>
           <li><span>Нейроагент</span><span class="price">от 18 000₽</span></li>
           <li><span>Автоматизация задач</span><span class="price">от 7000₽</span></li>
-          <li><span>Комплексная интеграция</span><span class="price">от 35 000₽</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Как я работаю -->
-    <div class="section-container process-background">
-      <button class="section-button" onclick="toggleSection('process')">
-        <i class="fas fa-tasks icon"></i><span>Как я работаю</span><i class="fas fa-chevron-down arrow" id="process-arrow"></i>
-      </button>
-      <div id="process-content" class="section-content">
-        <ul>
-          <li>Погружаюсь в проект и цели</li>
-          <li>Разрабатываю стратегию и план</li>
-          <li>Создаю контент и решения</li>
-          <li>Тестирую, запускаю, анализирую</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Почему удобно -->
-    <div class="section-container benefits-background">
-      <button class="section-button" onclick="toggleSection('benefits')">
-        <i class="fas fa-check-circle icon"></i><span>Почему удобно</span><i class="fas fa-chevron-down arrow" id="benefits-arrow"></i>
+          <li><span>Комплексная интеграция</span><span class="price">от 35 000₽
