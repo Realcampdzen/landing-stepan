@@ -126,6 +126,27 @@
       text-align: center;
     }
 
+    /* Новый стиль для блока "Контент и Визуал" */
+    .visual-background {
+      background: url('content-visual.png') no-repeat center center;
+      background-size: cover;
+      border-radius: 20px;
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .visual-inner {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 800px;
+    }
+
     @media (max-width: 768px) {
       h1 { font-size: 2.4rem; }
       h2 { font-size: 1.8rem; }
@@ -142,19 +163,21 @@
       <p>Креатив, тексты, нейросети, технологии: создаю контент и решения, которые работают на ваши цели.</p>
     </div>
 
-    <section>
-      <h2>Контент и Визуал</h2>
-      <ul>
-        <li><span>Пост для соцсетей</span><span class="highlight">1700₽</span></li>
-        <li><span>Развернутый пост или статья для Дзена</span><span class="highlight">3500₽</span></li>
-        <li><span>Разработка рубрики</span><span class="highlight">10 000₽</span></li>
-        <li><span>Ведение канала</span><span class="highlight">40 000₽/мес</span></li>
-        <li><span>Менеджмент канала</span><span class="highlight">10 000₽/мес</span></li>
-        <li><span>Полное продюсирование канала</span><span class="highlight">от 80 000₽</span></li>
-        <li><span>Адаптация изображений с интеграцией товара</span><span class="highlight">от 3000₽</span></li>
-        <li><span>Серия изображений (5 штук)</span><span class="highlight">от 12 000₽</span></li>
-      </ul>
-    </section>
+    <div class="visual-background">
+      <div class="visual-inner">
+        <h2>Контент и Визуал</h2>
+        <ul>
+          <li><span>Пост для соцсетей</span><span class="highlight">1700₽</span></li>
+          <li><span>Развернутый пост или статья для Дзена</span><span class="highlight">3500₽</span></li>
+          <li><span>Разработка рубрики</span><span class="highlight">10 000₽</span></li>
+          <li><span>Ведение канала</span><span class="highlight">40 000₽/мес</span></li>
+          <li><span>Менеджмент канала</span><span class="highlight">10 000₽/мес</span></li>
+          <li><span>Полное продюсирование канала</span><span class="highlight">от 80 000₽</span></li>
+          <li><span>Адаптация изображений с интеграцией товара</span><span class="highlight">от 3000₽</span></li>
+          <li><span>Серия изображений (5 штук)</span><span class="highlight">от 12 000₽</span></li>
+        </ul>
+      </div>
+    </div>
 
     <section>
       <h2>Технологии и автоматизация</h2>
