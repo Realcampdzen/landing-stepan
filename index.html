@@ -16,38 +16,70 @@
     .container {
       max-width: 800px;
       background: #ffffff;
-      margin: 40px auto;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      margin: 60px auto;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     h1 {
-      font-size: 2.4em;
+      font-size: 3em;
       margin-bottom: 20px;
       color: #2c3e50;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
     }
     h2 {
-      font-size: 1.8em;
-      margin-top: 30px;
+      font-size: 2em;
+      margin-top: 40px;
       color: #34495e;
     }
     ul {
-      margin-top: 10px;
+      margin-top: 15px;
       padding-left: 20px;
     }
     a {
       color: #3498db;
       text-decoration: none;
+      font-weight: 600;
     }
     a:hover {
       text-decoration: underline;
     }
     p {
       margin-top: 10px;
-      font-size: 1.1em;
+      font-size: 1.2em;
     }
     li {
       margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #3498db;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #2980b9;
+    }
+    .highlight {
+      color: #e67e22;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -55,25 +87,25 @@
 
 <div class="container">
   <h1>🚀 Степан Иванов</h1>
-  <p><strong>Креатив, тексты, нейросети: создаю контент, который работает.</strong></p>
+  <p><strong>Креатив, тексты, нейросети:</strong> создаю контент, который работает.</p>
 
   <h2>Что я делаю</h2>
   <ul>
     <li><strong>Тексты:</strong>
       <ul>
-        <li>Пост для соцсетей — 1700₽</li>
-        <li>Развернутый пост или статья для Дзена — 3500₽</li>
-        <li>Разработка рубрики — 10 000₽</li>
-        <li>Ведение канала — 40 000₽ / мес</li>
-        <li>Менеджмент канала — 10 000₽ / мес</li>
-        <li>Полное продюсирование канала — от 80 000₽</li>
+        <li>Пост для соцсетей — <span class="highlight">1700₽</span></li>
+        <li>Развернутый пост или статья для Дзена — <span class="highlight">3500₽</span></li>
+        <li>Разработка рубрики — <span class="highlight">10 000₽</span></li>
+        <li>Ведение канала — <span class="highlight">40 000₽</span> / мес</li>
+        <li>Менеджмент канала — <span class="highlight">10 000₽</span> / мес</li>
+        <li>Полное продюсирование канала — от <span class="highlight">80 000₽</span></li>
       </ul>
     </li>
 
     <li><strong>Изображения и визуальный контент:</strong>
       <ul>
-        <li>Адаптация изображений с интеграцией товара — от 3000₽</li>
-        <li>Серия изображений (5 штук) — от 12 000₽</li>
+        <li>Адаптация изображений с интеграцией товара — от <span class="highlight">3000₽</span></li>
+        <li>Серия изображений (5 штук) — от <span class="highlight">12 000₽</span></li>
         <li>Использую: Sora, Genspark, OpenAI API Playground</li>
       </ul>
     </li>
@@ -97,6 +129,8 @@
   <h2>Связаться</h2>
   <p>📩 Почта: <a href="mailto:твояпочта@домен.ру">твояпочта@домен.ру</a><br>
      📱 Telegram: <a href="https://t.me/твойник">t.me/твойник</a></p>
+
+  <a href="https://t.me/твойник" class="button" target="_blank">📩 Написать в Telegram</a>
 </div>
 
 </body>
