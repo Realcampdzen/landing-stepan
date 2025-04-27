@@ -15,75 +15,66 @@
       padding: 0;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .hero {
-      background: url('hero-visual.png') center/cover no-repeat;
+    section {
+      padding: 80px 20px;
       min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #111827;
-      padding: 20px;
     }
 
-    .hero h1 {
+    .hero {
+      background-image: url('hero-visual.png');
+      color: #111827;
+    }
+
+    .services {
+      background-image: url('section-background.png');
+      color: #111827;
+    }
+
+    .technology {
+      background-image: url('technology-illustration.png');
+      color: #111827;
+    }
+
+    .contact {
+      background-color: #f9fafb;
+      color: #111827;
+    }
+
+    h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 3.5rem;
       margin-bottom: 20px;
     }
 
-    .hero p {
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
       font-size: 1.5rem;
       color: #4b5563;
+      max-width: 700px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
       margin-top: 20px;
     }
 
-    .services, .technology, .contact {
-      margin-top: 60px;
-      padding: 40px;
-      background: none;
-      border-radius: 12px;
-    }
-
-    .services h2, .technology h2, .contact h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #111827;
-      text-align: center;
-    }
-
-    .services ul, .technology ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .services li, .technology li {
+    li {
+      font-size: 1.2rem;
       margin-bottom: 10px;
-      font-size: 1.1rem;
-      color: #374151;
-    }
-
-    .technology img {
-      max-width: 800px;
-      width: 100%;
-      margin: 30px auto;
-      display: block;
-      border-radius: 12px;
-    }
-
-    .contact p {
-      font-size: 1.1rem;
-      color: #374151;
-      margin-bottom: 20px;
-      text-align: center;
     }
 
     .button {
@@ -94,6 +85,7 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      margin-top: 20px;
       transition: background 0.3s ease;
     }
 
@@ -104,37 +96,33 @@
 </head>
 <body>
 
-<div class="container">
-  <section class="hero">
-    <h1>Степан Иванов</h1>
-    <p>Креатив, тексты, нейросети: создаю контент, который работает.</p>
-  </section>
+<section class="hero">
+  <h1>Степан Иванов</h1>
+  <p>Креатив, тексты, нейросети: создаю контент, который работает.</p>
+</section>
 
-  <section class="services">
-    <h2>Что я делаю</h2>
-    <ul>
-      <li>Пост для соцсетей — 1700₽</li>
-      <li>Развернутый пост или статья для Дзена — 3500₽</li>
-      <li>Разработка рубрики — 10 000₽</li>
-      <li>Ведение канала — 40 000₽ / мес</li>
-      <li>Менеджмент канала — 10 000₽ / мес</li>
-      <li>Полное продюсирование канала — от 80 000₽</li>
-    </ul>
-  </section>
+<section class="services">
+  <h2>Что я делаю</h2>
+  <ul>
+    <li>Пост для соцсетей — 1700₽</li>
+    <li>Развернутый пост или статья для Дзена — 3500₽</li>
+    <li>Разработка рубрики — 10 000₽</li>
+    <li>Ведение канала — 40 000₽ / мес</li>
+    <li>Менеджмент канала — 10 000₽ / мес</li>
+    <li>Полное продюсирование канала — от 80 000₽</li>
+  </ul>
+</section>
 
-  <section class="technology">
-    <h2>Технологии и автоматизация</h2>
-    <img src="technology-illustration.png" alt="Технологичная иллюстрация">
-  </section>
+<section class="technology">
+  <h2>Технологии и автоматизация</h2>
+  <p>Автоматизация процессов, создание сайтов и нейроассистентов под задачи вашего бизнеса.</p>
+</section>
 
-  <section class="contact">
-    <h2>Готовы начать?</h2>
-    <p>Напишите мне в Telegram, чтобы обсудить ваш проект.</p>
-    <div style="text-align: center;">
-      <a href="https://t.me/твойник" class="button" target="_blank">Написать в Telegram</a>
-    </div>
-  </section>
-</div>
+<section class="contact">
+  <h2>Готовы начать?</h2>
+  <p>Напишите мне в Telegram, чтобы обсудить ваш проект.</p>
+  <a href="https://t.me/твойник" class="button" target="_blank">Написать в Telegram</a>
+</section>
 
 </body>
 </html>
