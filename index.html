@@ -52,8 +52,10 @@
     .hero-section {
       text-align: center;
       padding: 120px 20px;
-      background: transparent;
-      box-shadow: none;
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(8px);
     }
 
     .hero-section h1 {
@@ -70,6 +72,12 @@
       max-width: 600px;
       margin: 0 auto;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    section:first-of-type {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      color: var(--text-main);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
 
     h2 {
