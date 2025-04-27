@@ -14,9 +14,7 @@
       --font-heading: 'Poppins', sans-serif;
       --text-main: #111827;
       --text-secondary: #4b5563;
-      --gradient-pink-yellow-teal: linear-gradient(135deg, #ffb6d9 0%, #fff7cf 40%, #aeecef 100%);
       --gradient-content: linear-gradient(90deg, #e9c6f4 0%, #a9d2fa 100%);
-      --gradient-tech: linear-gradient(90deg, #aeecef 0%, #fff7cf 60%);
       --gradient-process: linear-gradient(90deg, #c1f0bd 0%, #ffd1dc 100%);
       --gradient-benefits: linear-gradient(90deg, #fef9c3 0%, #d6e4ff 100%);
     }
@@ -33,12 +31,20 @@
     .hero-section {
       text-align:center;
       padding:100px 20px;
-      background: var(--gradient-pink-yellow-teal);
+      /* Background image for hero */
+      background: url('фон3.jpg') no-repeat center center;
+      background-size: cover;
       border-radius:24px;
       color:#111;
       margin-bottom:20px;
       box-shadow:0 8px 24px rgba(0,0,0,0.1);
       font-family: var(--font-heading);
+      position: relative;
+    }
+    .hero-section h1, .hero-section p {
+      /* Text stroke and shadow for readability */
+      -webkit-text-stroke: 1px rgba(255,255,255,0.8);
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
     }
     .hero-section h1 { font-size:3rem; margin-bottom:10px; }
     .hero-section p { font-size:1.25rem; }
@@ -105,6 +111,21 @@
       .section-button { font-size:1rem; padding:12px; }
     }
   </style>
+  <script>
+    function toggleSection(id) {
+      const content = document.getElementById(id + '-content');
+      const arrow = document.getElementById(id + '-arrow');
+      const show = !content.classList.contains('show');
+      ['content','tech','process','benefits'].forEach(key => {
+        if (key !== id) {
+          document.getElementById(key + '-content').classList.remove('show');
+          document.getElementById(key + '-arrow').className = 'fas fa-chevron-down arrow';
+        }
+      });
+      content.classList.toggle('show');
+      arrow.className = show ? 'fas fa-chevron-up arrow' : 'fas fa-chevron-down arrow';
+    }
+  </script>
 </head>
 <body>
   <div class="container">
@@ -170,41 +191,3 @@
     <div class="section-container benefits-background">
       <button class="section-button" onclick="toggleSection('benefits')">
         <i class="fas fa-check-circle icon"></i><span>Почему удобно</span><i class="fas fa-chevron-down arrow" id="benefits-arrow"></i>
-      </button>
-      <div id="benefits-content" class="section-content">
-        <ul>
-          <li>Скорость и дедлайны</li>
-          <li>Глубокий анализ задач</li>
-          <li>Прозрачная коммуникация</li>
-          <li>Долгосрочное партнерство</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Готовы начать? -->
-    <div class="contact">
-      <h2>Готовы начать?</h2>
-      <p>Напишите мне в Telegram, чтобы обсудить ваш проект.</p>
-      <a href="https://t.me/Stivanovv" class="button">
-        <i class="fab fa-telegram-plane"></i>Написать в Telegram
-      </a>
-    </div>
-
-  </div>
-  <script>
-    function toggleSection(id) {
-      const content = document.getElementById(id + '-content');
-      const arrow = document.getElementById(id + '-arrow');
-      const show = !content.classList.contains('show');
-      ['content','tech','process','benefits'].forEach(key => {
-        if (key !== id) {
-          document.getElementById(key + '-content').classList.remove('show');
-          document.getElementById(key + '-arrow').className = 'fas fa-chevron-down arrow';
-        }
-      });
-      content.classList.toggle('show');
-      arrow.className = show ? 'fas fa-chevron-up arrow' : 'fas fa-chevron-down arrow';
-    }
-  </script>
-</body>
-</html>
