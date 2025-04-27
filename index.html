@@ -3,590 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Степан Иванов | Контент, технологии и автоматизация</title>
-  <!-- Подключаем шрифты (Poppins для заголовков, Inter для текста) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <title>Степан Иванов | Контент и нейросети</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* --- CSS Переменные --- */
-    :root {
-      /* Цветовая Палитра (Пример: Сине-зеленый градиент) */
-      --primary-color: #007CF0; /* Яркий синий */
-      --secondary-color: #00DFD8; /* Бирюзовый */
-      --accent-gradient: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-      --accent-gradient-hover: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-
-      --text-color: #374151;      /* Темно-серый (почти черный) */
-      --text-color-light: #6B7280; /* Серый для второстепенного текста */
-      --heading-color: #111827;   /* Очень темный для заголовков */
-      --bg-color: #FFFFFF;       /* Белый фон */
-      --bg-alt-color: #F9FAFB;   /* Очень светлый серый для чередования */
-      --border-color: #E5E7EB;   /* Светлая граница */
-      --highlight-color: var(--primary-color); /* Цвет для цен */
-
-      /* Шрифты */
-      --heading-font: 'Poppins', sans-serif;
-      --body-font: 'Inter', sans-serif;
-
-      /* Размеры и Отступы */
-      --base-font-size: 16px;
-      --line-height: 1.8; /* Увеличили для воздушности */
-      --container-padding: 70px;
-      --section-spacing: 80px; /* Большой отступ между секциями */
-      --border-radius: 12px; /* Скругление для карточек/кнопок */
-    }
-
-    /* --- Базовые Стили и Сброс --- */
-    *, *::before, *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
     body {
-      font-family: var(--body-font);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-size: var(--base-font-size);
-      line-height: var(--line-height);
-      padding: 20px 0; /* Отступ только сверху/снизу */
-      -webkit-font-smoothing: antialiased; /* Улучшение рендеринга шрифтов */
-      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
     }
 
     .container {
-      max-width: 960px; /* Увеличили ширину */
-      margin: 0 auto; /* Центрирование */
-      padding: 0 20px; /* Боковые отступы только у контейнера */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
-    /* --- Секции --- */
-    .section {
-        padding-top: var(--section-spacing);
-        padding-bottom: var(--section-spacing);
-    }
-    /* Чередование фона секций (опционально) */
-    .section-alt-bg {
-        background-color: var(--bg-alt-color);
-        border-top: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    /* --- Заголовки и Текст --- */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: var(--heading-font);
-        color: var(--heading-color);
-        line-height: 1.3;
-        font-weight: 700; /* Делаем заголовки жирнее */
-    }
-
-    h1 {
-      font-size: 3.5em; /* Значительно крупнее */
-      font-weight: 800;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em; /* Небольшое сжатие букв */
-    }
-
-    h2 {
-      font-size: 2.5em; /* Крупнее */
-      font-weight: 700;
-      margin-bottom: 40px; /* Больше отступ снизу */
-      text-align: center; /* Центрируем заголовки секций */
-      letter-spacing: -0.01em;
-    }
-    .section-header { /* Обертка для заголовка и подзаголовка секции */
-        max-width: 650px;
-        margin: 0 auto 50px auto; /* Центрируем и добавляем отступ */
-        text-align: center;
-    }
-    .section-header p {
-        font-size: 1.1em;
-        color: var(--text-color-light);
-    }
-
-
-    p {
-      margin-bottom: 1.5em;
-      color: var(--text-color);
-    }
-    p:last-child {
-        margin-bottom: 0;
-    }
-
-    strong {
-        font-weight: 600; /* Чуть жирнее стандартного */
-        color: var(--heading-color);
-    }
-
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 500; /* Стандартный вес для ссылок */
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: var(--secondary-color); /* Используем второй цвет градиента для hover */
-      text-decoration: underline;
-    }
-
-    /* --- Hero Блок --- */
     .hero {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 60px; /* Больше расстояние между текстом и картинкой */
-        padding-top: var(--section-spacing); /* Больше отступа сверху */
-        padding-bottom: var(--section-spacing);
-        min-height: 70vh; /* Занимает большую часть экрана */
-    }
-    .hero-content {
-        flex: 1 1 55%; /* Текст занимает чуть больше половины */
-    }
-    .hero-content p {
-        font-size: 1.2em;
-        color: var(--text-color-light); /* Светлее основной текст */
-        max-width: 500px; /* Ограничиваем ширину */
-    }
-    .hero-visual {
-        flex: 1 1 40%; /* Картинка занимает оставшееся место */
-        text-align: center; /* Центрируем картинку если она меньше */
-    }
-    .hero-visual img {
-        max-width: 100%;
-        height: auto;
-        display: block; /* Убираем лишние отступы */
-        margin: 0 auto;
+      background: url('OpenAI Playground 2025-04-27 at 21.10.24.png') center/cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+      color: #111827;
     }
 
-    /* --- Список Услуг --- */
-    .services-category { /* Обертка для каждой категории (Тексты, Сайты и т.д.) */
-        margin-bottom: 40px;
-    }
-    .services-category h3 {
-        font-size: 1.4em;
-        font-weight: 600;
-        color: var(--heading-color);
-        margin-bottom: 20px;
-        padding-left: 30px; /* Место под иконку категории */
-        position: relative;
-    }
-    .services-category .category-icon { /* Иконка категории */
-        position: absolute;
-        left: 0;
-        top: 2px;
-        width: 20px;
-        height: 20px;
-        color: var(--primary-color); /* Цвет иконки */
-    }
-    .service-item { /* Конкретная услуга */
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 15px 0;
-        margin-bottom: 0; /* Убираем отступ у li */
-        border-bottom: 1px solid var(--border-color);
-        font-size: 1em; /* Размер текста услуги */
-    }
-    .service-item:last-child {
-        border-bottom: none;
-    }
-    .service-item span:not(.highlight) { /* Текст услуги */
-        font-weight: 500; /* Не жирный */
-        color: var(--text-color);
-        margin-right: 15px;
-    }
-    .highlight { /* Цена */
-      color: var(--highlight-color);
-      font-weight: 600;
-      font-size: 1em; /* Размер как у услуги */
-      white-space: nowrap;
-      padding: 0; /* Убираем фон и паддинги */
-      background-color: transparent;
-      margin-left: 15px;
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
 
-    /* --- Карточки Преимуществ/Процесса --- */
-    .features-grid {
-        display: grid;
-        /* Адаптивные колонки, мин. 250px, макс. 1fr */
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
-    }
-    .feature-card {
-      background-color: var(--bg-color);
-      padding: 30px;
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
-      text-align: left; /* Текст влево */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .feature-card:hover {
-        transform: translateY(-5px); /* Легкий подъем */
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Тень при наведении */
-    }
-    .feature-icon {
-        width: 36px; /* Размер иконки */
-        height: 36px;
-        margin-bottom: 15px;
-        color: var(--primary-color); /* Цвет иконки */
-        /* Стили для SVG, чтобы цвет работал */
-        display: inline-block;
-    }
-    .feature-icon svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    .feature-card h4 {
-        font-size: 1.2em;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: var(--heading-color);
-    }
-    .feature-card p {
-        font-size: 0.95em;
-        color: var(--text-color-light); /* Светлее текст в карточках */
-        line-height: 1.6;
-        margin-bottom: 0;
+    .hero p {
+      font-size: 1.25rem;
+      color: #4b5563;
     }
 
+    .services, .technology, .contact {
+      margin-top: 60px;
+    }
 
-    /* --- Кнопка --- */
+    .services h2, .technology h2, .contact h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .services ul, .technology ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .services li, .technology li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #374151;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      color: #374151;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 28px; /* Чуть меньше вертикальный паддинг */
-      font-size: 1em;
-      font-weight: 600;
-      font-family: var(--body-font); /* Используем основной шрифт */
-      color: #ffffff;
-      background: var(--primary-color); /* Сплошной цвет */
-      border: 1px solid transparent;
-      border-radius: var(--border-radius);
+      display: inline-block;
+      background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 8px;
       text-decoration: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px -4px rgba(0, 124, 240, 0.4); /* Тень в цвет кнопки */
+      font-weight: 600;
+      transition: background 0.3s ease;
     }
+
     .button:hover {
-      background: var(--secondary-color); /* Другой цвет при наведении */
-      color: var(--heading-color); /* Темный текст */
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px -6px rgba(0, 223, 216, 0.4); /* Тень в цвет hover */
-      text-decoration: none; /* Убираем подчеркивание */
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     }
-    /* Стилизация иконки в кнопке */
-    .button .icon {
-      width: 1.1em;
-      height: 1.1em;
-    }
-     .button .icon svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        fill: currentColor; /* Заливка цветом текста кнопки */
-     }
-
-    /* --- Секция Контактов --- */
-    .contact-section {
-        text-align: center;
-        padding-top: 60px; /* Отступ сверху */
-        padding-bottom: 60px; /* Отступ снизу */
-    }
-    .contact-section h2 {
-         border-bottom: none;
-         margin-bottom: 15px;
-     }
-    .contact-section p {
-        font-size: 1.15em;
-        color: var(--text-color-light);
-        max-width: 550px;
-        margin: 0 auto 30px auto; /* Центрируем и добавляем отступ */
-    }
-
-
-    /* --- Адаптивность --- */
-    @media (max-width: 768px) {
-      :root {
-          --container-padding: 40px;
-          --section-spacing: 60px;
-      }
-      h1 { font-size: 2.8em; }
-      h2 { font-size: 2em; }
-
-      .hero {
-          flex-direction: column; /* Текст над картинкой */
-          text-align: center;
-          gap: 40px;
-          min-height: auto; /* Убираем мин. высоту */
-          padding-top: 50px;
-          padding-bottom: 50px;
-      }
-      .hero-content {
-          flex-basis: auto; /* Авто размер */
-      }
-      .hero-content p {
-          margin-left: auto;
-          margin-right: auto; /* Центрируем текст */
-      }
-      .hero-visual {
-          flex-basis: auto;
-          max-width: 350px; /* Ограничиваем картинку */
-      }
-       .section-header {
-           margin-bottom: 40px;
-       }
-       .features-grid {
-           grid-template-columns: 1fr; /* Карточки в один столбец */
-           gap: 20px;
-       }
-    }
-
-    @media (max-width: 576px) {
-        :root {
-          --base-font-size: 15px;
-          --section-spacing: 50px;
-        }
-        body { padding: 10px 0; }
-        .container { padding: 0 15px; }
-
-        h1 { font-size: 2.4em; }
-        h2 { font-size: 1.8em; margin-bottom: 30px;}
-
-        .service-item {
-            /* Можно оставить flex, но цена может перенестись */
-            /* flex-direction: column;
-            align-items: flex-start; */
-            padding: 12px 0;
-        }
-        .highlight { margin-top: 5px; }
-
-        .button {
-            width: 100%; /* Кнопка на всю ширину */
-            padding: 14px 20px;
-        }
-        .contact-section p {
-            font-size: 1.1em;
-        }
-    }
-
   </style>
 </head>
 <body>
 
 <div class="container">
-
-  <!-- Hero Блок -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Степан Иванов</h1>
-      <p>Создаю эффективный контент, разрабатываю сайты и автоматизирую процессы с помощью современных технологий и нейросетей.</p>
-      <!-- Можно добавить сюда кнопку CTA, если нужно -->
-      <!-- <a href="#contact" class="button">Обсудить проект</a> -->
-    </div>
-    <div class="hero-visual">
-      <!-- === ЗАМЕНИТЕ НА ВАШЕ ИЗОБРАЖЕНИЕ === -->
-      <img src="assets/hero-abstract-visual.svg" alt="Абстрактная технологичная визуализация">
-      <!-- ==================================== -->
-    </div>
+    <h1>Степан Иванов</h1>
+    <p>Креатив, тексты, нейросети: создаю контент, который работает.</p>
   </section>
 
-  <!-- Секция Услуг: Контент и Визуал -->
-  <section class="section section-alt-bg" id="content-services">
-      <div class="section-header">
-          <h2>Контент и Визуал</h2>
-          <p>Привлекательные тексты и изображения, созданные с умом и использованием нейросетей.</p>
-      </div>
-      <div class="services-category">
-          <h3>
-              <!-- === Иконка Категории === -->
-              <img src="assets/icon-text.svg" alt="" class="category-icon">
-              <!-- ======================== -->
-              Тексты
-          </h3>
-          <ul>
-            <li class="service-item"><span>Пост для соцсетей</span><span class="highlight">1700₽</span></li>
-            <li class="service-item"><span>Развернутый пост или статья для Дзена</span><span class="highlight">3500₽</span></li>
-            <li class="service-item"><span>Разработка рубрики</span><span class="highlight">10 000₽</span></li>
-            <li class="service-item"><span>Ведение канала</span><span class="highlight">40 000₽ / мес</span></li>
-            <li class="service-item"><span>Менеджмент канала</span><span class="highlight">10 000₽ / мес</span></li>
-            <li class="service-item"><span>Полное продюсирование канала</span><span class="highlight">от 80 000₽</span></li>
-          </ul>
-      </div>
-       <div class="services-category">
-          <h3>
-              <!-- === Иконка Категории === -->
-              <img src="assets/icon-image.svg" alt="" class="category-icon">
-              <!-- ======================== -->
-              Изображения и визуальный контент
-          </h3>
-          <ul>
-            <li class="service-item"><span>Адаптация изображений с интеграцией товара</span><span class="highlight">от 3000₽</span></li>
-            <li class="service-item"><span>Серия изображений (5 штук)</span><span class="highlight">от 12 000₽</span></li>
-            <li class="service-item"><span>Использую: Sora, Genspark, OpenAI API Playground</span></li>
-          </ul>
-       </div>
+  <section class="services">
+    <h2>Что я делаю</h2>
+    <!-- Здесь будет список услуг -->
   </section>
 
-  <!-- Секция Услуг: Технологии и Автоматизация -->
-  <section class="section" id="tech-services">
-    <div class="section-header">
-        <h2>Технологии и автоматизация</h2>
-        <p>Современные решения для вашего присутствия в сети и оптимизации рутинных задач.</p>
-    </div>
-    <div class="services-category">
-        <h3>
-             <!-- === Иконка Категории === -->
-             <img src="assets/icon-website.svg" alt="" class="category-icon">
-             <!-- ======================== -->
-            Сайты на GitHub Pages
-        </h3>
-        <ul>
-          <li class="service-item"><span>Мини-сайт на GitHub Pages (дизайн, верстка, публикация)</span><span class="highlight">от 5000₽</span></li>
-          <li class="service-item"><span>Расширенный сайт с кастомизацией и анимациями</span><span class="highlight">от 8000₽</span></li>
-        </ul>
-    </div>
-    <div class="services-category">
-        <h3>
-            <!-- === Иконка Категории === -->
-            <img src="assets/icon-bot.svg" alt="" class="category-icon">
-            <!-- ======================== -->
-            Боты и нейроассистенты
-        </h3>
-        <ul>
-          <li class="service-item"><span>Базовый Telegram-бот на OpenAI API</span><span class="highlight">от 12 000₽</span></li>
-          <li class="service-item"><span>Продвинутый бот со сценариями и командами</span><span class="highlight">от 20 000₽</span></li>
-          <li class="service-item"><span>Создание нейроагента (помощник/автоматизация)</span><span class="highlight">от 18 000₽</span></li>
-        </ul>
-    </div>
-     <div class="services-category">
-        <h3>
-            <!-- === Иконка Категории === -->
-            <img src="assets/icon-automation.svg" alt="" class="category-icon">
-            <!-- ======================== -->
-            Автоматизация процессов
-        </h3>
-        <ul>
-          <li class="service-item"><span>Автоматизация переписок, постинга, обработки задач через API</span><span class="highlight">от 7000₽</span></li>
-          <li class="service-item"><span>Комплексная интеграция: сайт + бот + автоматизация</span><span class="highlight">от 35 000₽</span></li>
-        </ul>
-     </div>
+  <section class="technology">
+    <h2>Технологии и автоматизация</h2>
+    <!-- Здесь будет иллюстрация + описание -->
   </section>
 
-  <!-- Как я работаю (Карточки) -->
-  <section class="section section-alt-bg" id="process">
-      <div class="section-header">
-        <h2>Как я работаю</h2>
-        <p>Прозрачный и структурированный подход к решению ваших задач.</p>
-      </div>
-      <div class="features-grid">
-          <div class="feature-card">
-              <div class="feature-icon">
-                  <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-                  <!-- ====================== -->
-              </div>
-              <h4>Погружение и Анализ</h4>
-              <p>Глубоко изучаю ваш проект, цели и аудиторию, чтобы предложить наилучшее решение.</p>
-          </div>
-           <div class="feature-card">
-              <div class="feature-icon">
-                   <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                   <!-- ====================== -->
-              </div>
-              <h4>Стратегия и План</h4>
-              <p>Разрабатываю четкую стратегию и подробный план работ для достижения результата.</p>
-          </div>
-          <div class="feature-card">
-              <div class="feature-icon">
-                   <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
-                   <!-- ====================== -->
-              </div>
-              <h4>Создание и Разработка</h4>
-              <p>Пишу тексты, создаю визуал, разрабатываю сайты и ботов в соответствии с планом.</p>
-          </div>
-          <div class="feature-card">
-              <div class="feature-icon">
-                   <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" /></svg>
-                   <!-- ====================== -->
-              </div>
-              <h4>Запуск и Анализ</h4>
-              <p>Тестирую, запускаю проект и анализирую результаты для дальнейших улучшений.</p>
-          </div>
-      </div>
-  </section>
-
-  <!-- Почему со мной удобно (Карточки) -->
-  <section class="section" id="benefits">
-    <div class="section-header">
-        <h2>Почему со мной удобно</h2>
-        <p>Фокусируюсь на качестве, сроках и результате, чтобы наше сотрудничество было максимально комфортным.</p>
-    </div>
-    <div class="features-grid">
-        <div class="feature-card">
-           <div class="feature-icon">
-                <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <!-- ====================== -->
-            </div>
-            <h4>Скорость и Сроки</h4>
-            <p>Работаю оперативно и всегда соблюдаю оговоренные дедлайны.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">
-                <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.355a15.049 15.049 0 01-7.5 0C4.69 19.957 2.25 18.109 2.25 15.75V11.25c0-1.076.368-2.077 1-2.888A12.006 12.006 0 0112 3c4.15 0 7.802 1.99 10.207 5.053.516.73.843 1.61.843 2.547v4.5c0 2.359-2.44 4.207-5.993 4.207z" /></svg>
-                <!-- ====================== -->
-            </div>
-            <h4>Идеи и Решения</h4>
-            <p>Не просто исполнитель – предлагаю идеи и оптимальные пути решения задач.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">
-                <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-2.138c.195-.3.515-.475.865-.501 1.153-.086 2.294-.213 3.423-.379 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
-                <!-- ====================== -->
-            </div>
-            <h4>Прозрачная Коммуникация</h4>
-            <p>Всегда на связи, держу в курсе процесса и открыт к обсуждению.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">
-                <!-- === ЗАМЕНИТЕ ИКОНКУ === -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.31h5.518a.562.562 0 01.329 1.004l-4.04 2.928a.563.563 0 00-.182.557l1.535 4.927a.563.563 0 01-.841.62l-4.366-3.176a.563.563 0 00-.658 0l-4.366 3.176a.563.563 0 01-.841-.62l1.535-4.927a.563.563 0 00-.182-.557l-4.04-2.928a.562.562 0 01.329-1.004h5.518a.563.563 0 00.475-.31l2.125-5.11z" /></svg>
-                <!-- ====================== -->
-            </div>
-            <h4>Долгосрочное Партнерство</h4>
-            <p>Нацелен на построение надежных и продуктивных отношений с клиентами.</p>
-        </div>
+  <section class="contact">
+    <h2>Готовы начать?</h2>
+    <p>Напишите мне в Telegram, чтобы обсудить ваш проект.</p>
+    <div style="text-align: center;">
+      <a href="https://t.me/твойник" class="button" target="_blank">Написать в Telegram</a>
     </div>
   </section>
-
-  <!-- Связаться -->
-  <section class="contact-section section" id="contact">
-      <h2>Готовы начать?</h2>
-      <p>Напишите мне в Telegram, чтобы обсудить ваш проект. Я отвечу в ближайшее время и помогу найти оптимальное решение!</p>
-      <a href="https://t.me/твойник" class="button" target="_blank" rel="noopener noreferrer">
-        <span class="icon">
-            <!-- === ЗАМЕНИТЕ ИКОНКУ TELEGRAM === -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
-               <path d="M11.999 1.993c-5.514.001-9.986 4.472-9.986 9.987 0 5.514 4.472 9.986 9.986 9.986 5.514 0 9.986-4.472 9.986-9.986 0-5.515-4.472-9.986-9.986-9.987zm4.893 6.847l-1.99 9.28c-.163.763-.617.95-1.238.593l-3.04-2.235-1.468 1.41c-.16.16-.296.296-.61.296l.22-3.11 5.55-5.004c.24-.214-.053-.332-.374-.114l-6.86 4.31-3.023-.94c-.75-.235-.76-.74.136-1.11l11.58-4.494c.64-.248 1.18.15 1.014.93z"/>
-            </svg>
-             <!-- ================================ -->
-        </span>
-        Написать в Telegram
-      </a>
-  </section>
-
-</div> <!-- /.container -->
+</div>
 
 </body>
 </html>
