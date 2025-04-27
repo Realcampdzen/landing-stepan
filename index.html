@@ -32,13 +32,6 @@
       background-size: cover;
     }
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-      z-index: -1;
-    }
-
     .container {
       width: 100%;
       max-width: 1000px;
@@ -66,13 +59,13 @@
     .hero-section h1 {
       font-family: var(--font-heading);
       font-size: 3rem;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 20px;
     }
 
     .hero-section p {
       font-size: 1.3rem;
-      color: #eee;
+      color: var(--text-secondary);
       max-width: 600px;
       margin: 0 auto;
     }
@@ -135,7 +128,6 @@
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
   <div class="container">
 
     <section class="hero-section">
