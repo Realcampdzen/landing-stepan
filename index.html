@@ -3,126 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Степан Иванов | Контент и нейросети</title>
+  <title>Степан Иванов | Контент, технологии и автоматизация</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
+    :root {
+      --primary-color: #6a11cb;
+      --secondary-color: #2575fc;
+      --background-light: #f9fafb;
+      --text-main: #111827;
+      --text-secondary: #4b5563;
+      --font-main: 'Inter', sans-serif;
+      --font-heading: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    body {
+      font-family: var(--font-main);
+      background-color: var(--background-light);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     section {
-      padding: 80px 20px;
-      min-height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      padding: 80px 0;
     }
 
     .hero {
-      background-image: url('hero-visual.png');
-      color: #111827;
+      background: url('hero-visual.png') no-repeat center/cover;
+      text-align: center;
+      padding: 150px 20px;
     }
 
-    .services {
-      background-image: url('section-background.png');
-      color: #111827;
-    }
-
-    .technology {
-      background-image: url('technology-illustration.png');
-      color: #111827;
-    }
-
-    .contact {
-      background-color: #f9fafb;
-      color: #111827;
-    }
-
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 3.5rem;
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
       margin-bottom: 20px;
     }
 
-    h2 {
-      font-family: 'Poppins', sans-serif;
+    .hero p {
+      font-size: 1.4rem;
+      color: var(--text-secondary);
+    }
+
+    .services, .technology, .contact {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 40px;
+      padding: 60px 40px;
+    }
+
+    .services h2, .technology h2, .contact h2 {
+      font-family: var(--font-heading);
       font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.5rem;
-      color: #4b5563;
-      max-width: 700px;
+      text-align: center;
+      margin-bottom: 40px;
     }
 
     ul {
       list-style: none;
       padding: 0;
-      margin-top: 20px;
     }
 
     li {
       font-size: 1.2rem;
-      margin-bottom: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--background-light);
+    }
+
+    .technology {
+      background: url('technology-illustration.png') no-repeat center/contain;
+      background-color: #fff;
+    }
+
+    .contact {
+      text-align: center;
+      background: url('section-background.png') no-repeat center/cover;
     }
 
     .button {
       display: inline-block;
-      background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
-      color: #fff;
-      padding: 12px 30px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
       margin-top: 20px;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      padding: 14px 28px;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: var(--font-heading);
       transition: background 0.3s ease;
     }
 
     .button:hover {
-      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     }
   </style>
 </head>
 <body>
 
-<section class="hero">
-  <h1>Степан Иванов</h1>
-  <p>Креатив, тексты, нейросети: создаю контент, который работает.</p>
-</section>
+<div class="container">
+  <section class="hero">
+    <h1>Степан Иванов</h1>
+    <p>Креатив, тексты, нейросети: создаю контент, который работает.</p>
+  </section>
 
-<section class="services">
-  <h2>Что я делаю</h2>
-  <ul>
-    <li>Пост для соцсетей — 1700₽</li>
-    <li>Развернутый пост или статья для Дзена — 3500₽</li>
-    <li>Разработка рубрики — 10 000₽</li>
-    <li>Ведение канала — 40 000₽ / мес</li>
-    <li>Менеджмент канала — 10 000₽ / мес</li>
-    <li>Полное продюсирование канала — от 80 000₽</li>
-  </ul>
-</section>
+  <section class="services">
+    <h2>Что я делаю</h2>
+    <ul>
+      <li>Пост для соцсетей — 1700₽</li>
+      <li>Развернутый пост или статья для Дзена — 3500₽</li>
+      <li>Разработка рубрики — 10 000₽</li>
+      <li>Ведение канала — 40 000₽ / мес</li>
+      <li>Менеджмент канала — 10 000₽ / мес</li>
+      <li>Полное продюсирование канала — от 80 000₽</li>
+    </ul>
+  </section>
 
-<section class="technology">
-  <h2>Технологии и автоматизация</h2>
-  <p>Автоматизация процессов, создание сайтов и нейроассистентов под задачи вашего бизнеса.</p>
-</section>
+  <section class="technology">
+    <h2>Технологии и автоматизация</h2>
+    <p>Создаю сайты на GitHub Pages, разрабатываю ботов и автоматизирую процессы для бизнеса.</p>
+  </section>
 
-<section class="contact">
-  <h2>Готовы начать?</h2>
-  <p>Напишите мне в Telegram, чтобы обсудить ваш проект.</p>
-  <a href="https://t.me/твойник" class="button" target="_blank">Написать в Telegram</a>
-</section>
+  <section class="contact">
+    <h2>Готовы начать?</h2>
+    <p>Напишите мне в Telegram, чтобы обсудить ваш проект.</p>
+    <a href="https://t.me/твойник" class="button" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+  </section>
+</div>
 
 </body>
 </html>
