@@ -133,14 +133,29 @@
       padding: 60px 20px;
       margin-bottom: 60px;
       text-align: center;
+      position: relative;
     }
 
     .visual-background {
       background: url('fon2.png') no-repeat center center;
+      background-size: cover;
     }
 
     .tech-background {
       background: url('fon3.png') no-repeat center center;
+      background-size: cover;
+    }
+
+    .visual-title, .tech-title {
+      background: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      cursor: pointer;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     .visual-inner, .tech-inner {
@@ -153,7 +168,7 @@
       margin: 0 auto;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease;
+      transition: max-height 0.5s ease, padding 0.5s ease;
     }
 
     .visual-inner.show, .tech-inner.show {
@@ -190,7 +205,7 @@
     </div>
 
     <div class="visual-background">
-      <h2 onclick="toggleVisualInner()">Контент и Визуал</h2>
+      <div class="visual-title" onclick="toggleVisualInner()">Контент и Визуал</div>
       <div class="visual-inner">
         <ul>
           <li><span>Пост для соцсетей</span><span class="highlight">1700₽</span></li>
@@ -206,7 +221,7 @@
     </div>
 
     <div class="tech-background">
-      <h2 onclick="toggleTechInner()">Технологии и автоматизация</h2>
+      <div class="tech-title" onclick="toggleTechInner()">Технологии и автоматизация</div>
       <div class="tech-inner">
         <ul>
           <li><span>Мини-сайт на GitHub Pages</span><span class="highlight">от 5000₽</span></li>
