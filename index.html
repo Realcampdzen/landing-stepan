@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Степан Иванов | Контент, технологии и автоматизация</title>
 
-  <!-- Open Graph для красивого превью при шаринге -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Степан Иванов — Контент и автоматизация">
   <meta property="og:description" content="Создаю сайты, боты и контент, который работает.">
   <meta property="og:image" content="https://your-domain.com/hero-visual.png">
@@ -14,17 +14,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 
   <style>
+    /* ————————————————————————————————————————————— *
+       Цветовая палитра и шрифты
+    * ————————————————————————————————————————————— */
     :root {
-      --primary-color: #6a11cb;
-      --primary-color-dark: #2575fc;
+      --primary-color: #0052D4;
+      --secondary-color: #4364F7;
+      --tertiary-color: #6FB1FC;
       --text-main: #111827;
-      --text-secondary: #4b5563;
-      --bg-light: #f9fafb;
-      --bg-white: #ffffff;
+      --text-secondary: #6B7280;
+      --bg-light: #F9FAFB;
+      --bg-white: #FFFFFF;
       --font-main: 'Inter', sans-serif;
       --font-heading: 'Poppins', sans-serif;
     }
-    *, *::before, *::after { box-sizing: border-box; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: var(--font-main);
@@ -33,184 +41,287 @@
       line-height: 1.7;
       scroll-behavior: smooth;
     }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    h1, h2 { font-family: var(--font-heading); margin:0 0 .5em; line-height:1.2; }
-    h1 { font-size:3.2rem; }
-    h2 { font-size:2.5rem; text-align:center; }
 
-    /* Навигация */
+    h1, h2 {
+      font-family: var(--font-heading);
+      margin: 0 0 .5em;
+      line-height: 1.2;
+    }
+    h1 { font-size: 3.2rem; }
+    h2 { font-size: 2.5rem; text-align: center; }
+
+    /* ————————————————————————————————————————————— *
+       Фиксированная навигация
+    * ————————————————————————————————————————————— */
     header {
-      position: fixed; top:0; left:0; right:0;
-      background: rgba(255,255,255,.9);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       z-index: 100;
     }
-    nav { display:flex; justify-content:center; padding:10px 0; }
-    nav a {
-      margin:0 15px; text-decoration:none;
-      color: var(--text-secondary); font-weight:600;
-      transition: color .2s;
+    nav {
+      display: flex; justify-content: center; padding: 10px 0;
     }
-    nav a:hover { color: var(--primary-color); }
+    nav a {
+      margin: 0 15px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    nav a:hover {
+      color: var(--primary-color);
+    }
 
-    /* Секции */
-    section { padding:100px 0; position:relative; }
+    /* ————————————————————————————————————————————— *
+       Общие стили секций
+    * ————————————————————————————————————————————— */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
 
-    /* Hero */
+    /* — Hero ————————————————————————————————————————————— */
     .hero {
-      background:url('hero-visual.png') center/cover no-repeat;
-      text-align:center; padding:200px 20px 150px;
-      color:#fff;
+      background: url('hero-visual.png') center/cover no-repeat;
+      text-align: center;
+      padding: 200px 20px 150px;
+      color: #fff;
     }
     .hero::before {
-      content:''; position:absolute; inset:0;
-      background:rgba(0,0,0,.45);
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.25);
     }
-    .hero > * { position:relative; z-index:1; }
-    .hero p { font-size:1.4rem; max-width:600px; margin:0 auto 30px; color:#eee; }
-    .hero .button { margin-top:20px; }
-
-    /* Services */
-    .services {
-      background: var(--bg-white);
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      padding:60px 40px;
+    .hero > * {
+      position: relative; z-index: 1;
     }
-    .services-list { list-style:none; margin-top:40px; padding:0; }
-    .services-list > li { margin-bottom:25px; font-size:1.1rem; }
-    .services-list ul {
-      list-style:none; margin:15px 0; padding-left:10px;
-      border-left:2px solid #e5e7eb;
-    }
-    .services-list li li {
-      display:flex; justify-content:space-between;
-      padding:10px 0 10px 20px; border-bottom:1px dashed #e5e7eb;
-      font-size:1rem;
-    }
-    .services-list li li:last-child { border-bottom:none; }
-    .highlight {
-      background:#f0f1f3; padding:3px 10px; border-radius:6px;
-      color:var(--primary-color); font-weight:600; white-space:nowrap;
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #eee;
     }
 
-    /* Technology */
-    .technology {
-      background:url('technology-illustration.png') center/cover no-repeat;
-      background-size:cover; min-height:350px;
-      border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      display:flex; flex-direction:column; justify-content:flex-end;
-      padding:60px 40px; margin:40px 0; color:#fff;
-    }
-    .technology::before {
-      content:''; position:absolute; inset:0;
-      background:rgba(0,0,0,.35); border-radius:12px;
-    }
-    .technology > * { position:relative; z-index:1; }
-    .technology p { max-width:800px; margin:0 auto; font-size:1.1rem; }
-
-    /* Process */
-    .process {
-      background: var(--bg-white);
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      padding:60px 40px; margin:40px 0;
-    }
-    .process ul {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px; list-style:none; padding:0; margin-top:40px;
-    }
-    .process li {
-      position:relative; padding-left:45px; font-size:1rem;
-    }
-    .process li::before {
-      content:''; position:absolute; left:0; top:0.2em; width:1.2em; height:1.2em;
-      background:var(--primary-color) center/contain no-repeat;
-      mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>') no-repeat;
-      border-radius:50%;
-    }
-
-    /* Benefits */
-    .benefits {
-      background: var(--bg-white);
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      padding:60px 40px; margin:40px 0;
-    }
-    .benefits ul {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px; list-style:none; padding:0; margin-top:40px;
-    }
-    .benefits li {
-      position:relative; padding-left:45px; font-size:1rem;
-    }
-    .benefits li::before {
-      content:''; position:absolute; left:0; top:0.2em; width:1.2em; height:1.2em;
-      background:var(--secondary-color) center/contain no-repeat;
-      mask:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M12 6v6h4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>') no-repeat;
-      border-radius:50%;
-    }
-
-    /* Contact */
-    .contact {
-      position:relative;
-      background:url('section-background.png') center/cover no-repeat;
-      background-size:cover; min-height:320px;
-      border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      display:flex; align-items:center; justify-content:center;
-      text-align:center; margin:40px 0;
-    }
-    .contact::after {
-      content:''; position:absolute; inset:0;
-      background:rgba(0,0,0,0.5); border-radius:12px;
-    }
-    .contact .contact-content {
-      position:relative; z-index:1; color:#fff; padding:40px;
-    }
-    .contact-content p { font-size:1.1rem; margin-bottom:20px; }
-
-    /* Button */
+    /* — Кнопка CTA ————————————————————————————————————————————— */
     .button {
-      display:inline-flex; align-items:center; gap:10px;
-      padding:14px 28px; background:linear-gradient(135deg,var(--primary-color-dark),var(--primary-color));
-      color:#fff; font-family:var(--font-heading); font-weight:600;
-      text-decoration:none; border-radius:8px;
-      transition:background .3s,transform .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--tertiary-color), var(--secondary-color));
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(67, 100, 247, 0.4);
+      transition: background .3s ease, transform .2s ease, box-shadow .2s ease;
     }
     .button:hover {
-      background:linear-gradient(135deg,var(--primary-color),var(--primary-color-dark));
-      transform:translateY(-2px);
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      box-shadow: 0 8px 25px rgba(67, 100, 247, 0.5);
+      transform: translateY(-2px);
     }
 
-    /* Back to top */
+    /* — Услуги ————————————————————————————————————————————— */
+    .services {
+      background: var(--bg-white);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 60px 40px;
+      margin-top: 60px;
+    }
+    .services-list {
+      list-style: none;
+      margin-top: 40px;
+      padding: 0;
+    }
+    .services-list > li {
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+    .services-list ul {
+      list-style: none;
+      padding-left: 10px;
+      margin: 15px 0;
+      border-left: 2px solid #e5e7eb;
+    }
+    .services-list li li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0 10px 20px;
+      border-bottom: 1px dashed #e5e7eb;
+      font-size: 1rem;
+    }
+    .services-list li li:last-child {
+      border-bottom: none;
+    }
+    .highlight {
+      background: none;
+      color: var(--tertiary-color);
+      font-weight: 600;
+      font-size: 1.05em;
+      padding: 0;
+      margin-left: 15px;
+      white-space: nowrap;
+    }
+
+    /* — Технологии ————————————————————————————————————————————— */
+    .technology {
+      background: url('technology-illustration.png') center/cover no-repeat;
+      background-size: cover;
+      min-height: 350px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 60px 40px;
+      color: #fff;
+      margin: 40px 0;
+    }
+    .technology::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 12px;
+    }
+    .technology > * {
+      position: relative; z-index: 1;
+    }
+    .technology p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    /* — Процесс ————————————————————————————————————————————— */
+    .process {
+      background: var(--bg-white);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 60px 40px;
+      margin: 40px 0;
+    }
+    .process ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+      margin-top: 40px;
+    }
+    .process li {
+      position: relative;
+      padding-left: 45px;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+    .process li::before {
+      content: '';
+      position: absolute; left: 0; top: 0.2em;
+      width: 1.2em; height: 1.2em;
+      background: var(--primary-color) center/contain no-repeat;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19l12-12-1.41-1.41z"/></svg>') no-repeat;
+      border-radius: 50%;
+    }
+
+    /* — Преимущества ————————————————————————————————————————————— */
+    .benefits {
+      background: var(--bg-white);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 60px 40px;
+      margin: 40px 0;
+    }
+    .benefits ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+      margin-top: 40px;
+    }
+    .benefits li {
+      position: relative;
+      padding-left: 45px;
+      font-size: 1rem;
+    }
+    .benefits li::before {
+      content: '';
+      position: absolute; left: 0; top: 0.2em;
+      width: 1.2em; height: 1.2em;
+      background: var(--secondary-color) center/contain no-repeat;
+      mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M12 6v6h4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>') no-repeat;
+      border-radius: 50%;
+    }
+
+    /* — Контакты ————————————————————————————————————————————— */
+    .contact {
+      position: relative;
+      background: url('section-background.png') center/cover no-repeat;
+      background-size: cover;
+      min-height: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 40px 0;
+    }
+    .contact::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+    }
+    .contact .contact-content {
+      position: relative; z-index: 1;
+      color: #fff; padding: 40px;
+    }
+    .contact-content p {
+      font-size: 1.1rem; margin-bottom: 20px;
+    }
+
+    /* — Кнопка "Наверх" ————————————————————————————————————————————— */
     #toTop {
-      position:fixed; right:20px; bottom:20px; display:none;
-      background:var(--primary-color); color:#fff;
-      padding:10px 14px; border-radius:50%; cursor:pointer;
-      font-size:1.2rem; z-index:100;
+      position: fixed; right: 20px; bottom: 20px;
+      display: none;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 100;
     }
 
-    @media (max-width:768px) {
-      h1 { font-size:2.4rem; }
-      h2 { font-size:2rem; }
-      .hero { padding:100px 20px 80px; }
-      section { padding:60px 0; }
+    /* — Адаптивность ————————————————————————————————————————————— */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+      .hero { padding: 100px 20px 80px; }
+      section { padding: 60px 0; }
     }
-    @media (max-width:480px) {
-      h1 { font-size:2rem; }
-      h2 { font-size:1.6rem; }
-      .process ul, .benefits ul { grid-template-columns:1fr; }
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      .process ul, .benefits ul { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Навигация -->
   <header>
     <nav>
       <a href="#services">Услуги</a>
@@ -296,7 +407,7 @@
   <div id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
 
   <script>
-    // Плавная анимация разделов
+    // Анимация входа секций
     document.querySelectorAll('section').forEach(sec => {
       sec.style.opacity = 0;
       sec.style.transform = 'translateY(20px)';
@@ -310,10 +421,10 @@
           obs.unobserve(e.target);
         }
       });
-    }, {threshold: .2});
+    }, { threshold: 0.2 });
     document.querySelectorAll('section').forEach(sec => obs.observe(sec));
 
-    // Появление кнопки "Вверх"
+    // Показ кнопки "Наверх"
     const toTop = document.getElementById('toTop');
     window.addEventListener('scroll', () => {
       toTop.style.display = window.scrollY > 300 ? 'block' : 'none';
