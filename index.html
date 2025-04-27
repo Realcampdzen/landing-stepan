@@ -125,43 +125,35 @@
 
     .contact {
       text-align: center;
+      background: none;
+      box-shadow: none;
+    }
+
+    .visual-background, .tech-background, .process-background, .benefits-background {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 20px;
+      padding: 60px 20px;
+      margin-bottom: 60px;
+      text-align: center;
+      position: relative;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .visual-background {
       background-image: url('fon2.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      border-radius: 20px;
-      padding: 60px 20px;
-      margin-bottom: 60px;
-      text-align: center;
-      position: relative;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
 
     .tech-background {
       background-image: url('фон3.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      border-radius: 20px;
-      padding: 60px 20px;
-      margin-bottom: 60px;
-      text-align: center;
-      position: relative;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
 
-    .visual-title, .tech-title {
+    .visual-title, .tech-title, .process-title, .benefits-title {
       background: white;
       padding: 10px 20px;
       border-radius: 12px;
@@ -173,7 +165,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .visual-inner, .tech-inner {
+    .visual-inner, .tech-inner, .process-inner, .benefits-inner {
       background: rgba(255, 255, 255, 0.92);
       padding: 0 40px;
       border-radius: 16px;
@@ -186,7 +178,7 @@
       transition: max-height 0.5s ease, padding 0.5s ease;
     }
 
-    .visual-inner.show, .tech-inner.show {
+    .visual-inner.show, .tech-inner.show, .process-inner.show, .benefits-inner.show {
       max-height: 1000px;
       padding: 40px;
     }
@@ -200,16 +192,21 @@
 
   <script>
     function toggleVisualInner() {
-      const content = document.querySelector('.visual-inner');
-      content.classList.toggle('show');
+      document.querySelector('.visual-inner').classList.toggle('show');
     }
 
     function toggleTechInner() {
-      const content = document.querySelector('.tech-inner');
-      content.classList.toggle('show');
+      document.querySelector('.tech-inner').classList.toggle('show');
+    }
+
+    function toggleProcessInner() {
+      document.querySelector('.process-inner').classList.toggle('show');
+    }
+
+    function toggleBenefitsInner() {
+      document.querySelector('.benefits-inner').classList.toggle('show');
     }
   </script>
-
 </head>
 <body>
   <div class="container">
@@ -250,25 +247,29 @@
       </div>
     </div>
 
-    <section>
-      <h2>Как я работаю</h2>
-      <ul>
-        <li>Погружаюсь в проект и цели</li>
-        <li>Разрабатываю стратегию и план</li>
-        <li>Создаю контент и решения</li>
-        <li>Тестирую, запускаю, анализирую</li>
-      </ul>
-    </section>
+    <div class="process-background">
+      <div class="process-title" onclick="toggleProcessInner()">Как я работаю</div>
+      <div class="process-inner">
+        <ul>
+          <li>Погружаюсь в проект и цели</li>
+          <li>Разрабатываю стратегию и план</li>
+          <li>Создаю контент и решения</li>
+          <li>Тестирую, запускаю, анализирую</li>
+        </ul>
+      </div>
+    </div>
 
-    <section>
-      <h2>Почему удобно</h2>
-      <ul>
-        <li>Скорость и дедлайны</li>
-        <li>Глубокий анализ задач</li>
-        <li>Прозрачная коммуникация</li>
-        <li>Долгосрочное партнерство</li>
-      </ul>
-    </section>
+    <div class="benefits-background">
+      <div class="benefits-title" onclick="toggleBenefitsInner()">Почему удобно</div>
+      <div class="benefits-inner">
+        <ul>
+          <li>Скорость и дедлайны</li>
+          <li>Глубокий анализ задач</li>
+          <li>Прозрачная коммуникация</li>
+          <li>Долгосрочное партнерство</li>
+        </ul>
+      </div>
+    </div>
 
     <section class="contact">
       <h2>Готовы начать?</h2>
