@@ -79,6 +79,7 @@
       color: var(--text-main);
       margin-bottom: 20px;
       text-align: center;
+      cursor: pointer;
     }
 
     ul {
@@ -126,25 +127,38 @@
       text-align: center;
     }
 
-    /* Новый стиль для блока "Контент и Визуал" */
-    .visual-background {
-      background: url('fon2.png') no-repeat center center;
+    .visual-background, .tech-background {
       background-size: cover;
       border-radius: 20px;
       padding: 60px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       margin-bottom: 60px;
+      text-align: center;
     }
 
-    .visual-inner {
+    .visual-background {
+      background: url('fon2.png') no-repeat center center;
+    }
+
+    .tech-background {
+      background: url('fon3.png') no-repeat center center;
+    }
+
+    .visual-inner, .tech-inner {
       background: rgba(255, 255, 255, 0.92);
-      padding: 40px;
+      padding: 0 40px;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       width: 100%;
       max-width: 800px;
+      margin: 0 auto;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .visual-inner.show, .tech-inner.show {
+      max-height: 1000px;
+      padding: 40px;
     }
 
     @media (max-width: 768px) {
@@ -152,8 +166,20 @@
       h2 { font-size: 1.8rem; }
       li { font-size: 1rem; }
     }
-
   </style>
+
+  <script>
+    function toggleVisualInner() {
+      const content = document.querySelector('.visual-inner');
+      content.classList.toggle('show');
+    }
+
+    function toggleTechInner() {
+      const content = document.querySelector('.tech-inner');
+      content.classList.toggle('show');
+    }
+  </script>
+
 </head>
 <body>
   <div class="container">
@@ -164,8 +190,8 @@
     </div>
 
     <div class="visual-background">
+      <h2 onclick="toggleVisualInner()">Контент и Визуал</h2>
       <div class="visual-inner">
-        <h2>Контент и Визуал</h2>
         <ul>
           <li><span>Пост для соцсетей</span><span class="highlight">1700₽</span></li>
           <li><span>Развернутый пост или статья для Дзена</span><span class="highlight">3500₽</span></li>
@@ -179,18 +205,20 @@
       </div>
     </div>
 
-    <section>
-      <h2>Технологии и автоматизация</h2>
-      <ul>
-        <li><span>Мини-сайт на GitHub Pages</span><span class="highlight">от 5000₽</span></li>
-        <li><span>Расширенный сайт с кастомизацией</span><span class="highlight">от 8000₽</span></li>
-        <li><span>Telegram-бот на OpenAI API</span><span class="highlight">от 12 000₽</span></li>
-        <li><span>Продвинутый бот</span><span class="highlight">от 20 000₽</span></li>
-        <li><span>Нейроагент</span><span class="highlight">от 18 000₽</span></li>
-        <li><span>Автоматизация задач через API</span><span class="highlight">от 7000₽</span></li>
-        <li><span>Комплексная интеграция</span><span class="highlight">от 35 000₽</span></li>
-      </ul>
-    </section>
+    <div class="tech-background">
+      <h2 onclick="toggleTechInner()">Технологии и автоматизация</h2>
+      <div class="tech-inner">
+        <ul>
+          <li><span>Мини-сайт на GitHub Pages</span><span class="highlight">от 5000₽</span></li>
+          <li><span>Расширенный сайт с кастомизацией</span><span class="highlight">от 8000₽</span></li>
+          <li><span>Telegram-бот на OpenAI API</span><span class="highlight">от 12 000₽</span></li>
+          <li><span>Продвинутый бот</span><span class="highlight">от 20 000₽</span></li>
+          <li><span>Нейроагент</span><span class="highlight">от 18 000₽</span></li>
+          <li><span>Автоматизация задач через API</span><span class="highlight">от 7000₽</span></li>
+          <li><span>Комплексная интеграция</span><span class="highlight">от 35 000₽</span></li>
+        </ul>
+      </div>
+    </div>
 
     <section>
       <h2>Как я работаю</h2>
